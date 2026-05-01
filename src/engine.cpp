@@ -67,9 +67,9 @@ int Engine::run()
         std::vector<std::string> args;
         args.reserve(binding.args.size());
 
-        for (const auto& arg : binding.args)
+        for (const auto& argName : binding.args)
         {
-            std::cout << arg << ": ";
+            std::cout << argName << ": ";
             std::string arg;
             if (!(std::cin >> arg)) return 0;
             args.push_back(std::move(arg));
