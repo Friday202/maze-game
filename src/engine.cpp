@@ -32,7 +32,7 @@ void Engine::initializeInputMap()
 
     m_inputMap["R"] = { InputAction::IA_Restart_Game,  "Restart Game",  GameState::GS_Game_Over   };
     m_inputMap["L"] = { InputAction::IA_Load_Game,     "Load Game",     GameState::GS_Menu,     { "Insert game name" }  };    
-    m_inputMap["N"] = { InputAction::IA_New_Game,      "New Game",      GameState::GS_Menu,     { "Insert layout size (>3)", "Insert game name" }   };
+    m_inputMap["N"] = { InputAction::IA_New_Game,      "New Game",      GameState::GS_Menu,     { "Insert layout size (16 > N > 3)", "Insert game name" }   };
 
     m_inputMap["H"] = { InputAction::IA_All_Games,     "Show aviable games",    GameState::GS_Menu  };    
 
@@ -138,9 +138,9 @@ bool Engine::handleNewGame(const std::vector<std::string>& args)
         return false; 
     }
     
-    if (size < 4)
+    if (size < 4 || size > 15)
     {
-        std::cerr << "Size for grid is too small must be greater than 3!\n";
+        std::cerr << "Size for grid is too small or too big!\n";
         return false;                              
     }
 

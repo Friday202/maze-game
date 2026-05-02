@@ -9,7 +9,7 @@
 Level::Level(const std::string& name, const int size, GameManager* gameManager) 
     : m_name(name), m_size(size), m_gameManager(gameManager)
 {
-    assert(m_size > 3);
+    assert(m_size > 3 && m_size < 16);
 
     createLayout();
 }
